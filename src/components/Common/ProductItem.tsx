@@ -43,6 +43,9 @@ const ProductItem = ({ item }: { item: Product }) => {
 
   const handleProductDetails = () => {
     dispatch(updateproductDetails({ ...item }));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("productDetails", JSON.stringify(item));
+    }
   };
 
   return (
